@@ -1,0 +1,2 @@
+ENV['AWS_ACCESS_KEY_ID'] = 'xxx'
+ENV['AWS_SECRET_ACCESS_KEY'] = 'xxx'

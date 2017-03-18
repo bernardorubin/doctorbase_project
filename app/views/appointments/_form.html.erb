@@ -1,0 +1,253 @@
+<div class="container-fluid">
+
+    <p class="error_message" style="text-align:center"><%= @appointment.errors.full_messages.join(', ') %></p>
+
+    <%= simple_form_for [@patient, @appointment] do |f| %>
+      <div class="row">
+        <div class="form-group col-md-4">
+            <%= f.label :date, "Fecha:", class: "col-md-2 control-label"   %>
+            <div class="col-md-10">
+                <%= f.date_select :date, {default: Date.today}, class: "form-control", style:"width:32%; display:inline-block" %>
+            </div>
+        </div>
+        <div class="form-group col-md-2">
+            <%= f.input :image, label_html: { style: 'display:none' } %>
+        </div>
+        <div class="form-group col-md-2">
+            <%= f.input :image2, label_html: { style: 'display:none' }  %>
+        </div>
+        <div class="form-group col-md-2">
+            <%= f.input :image3, label_html: { style: 'display:none' }  %>
+        </div>
+        <div class="form-group col-md-2">
+            <%= f.input :image4, label_html: { style: 'display:none' }  %>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="form-group col-md-12">
+            <%= f.label :text_field1, "S:", class: "col-md-1 control-label"  %>
+            <div class="col-md-11">
+                <%= f.text_area :text_field1, class: "form-control" %>
+            </div>
+        </div>
+      </div>
+
+      <div class="row">
+            <div class="form-group col-md-3">
+                <%= f.label :field1, "A.V..:  O.D.", class: "col-md-4 control-label"  %>
+                <div class="col-md-8">
+                    <%= f.text_field :field1, class: "form-control" %>
+                </div>
+            </div>
+            <div class="form-group col-md-3">
+                <div class="col-md-4">
+                <%= f.label :field2, "O.I.", class: "control-label"  %>
+                </div>
+                <div class="col-md-8">
+                    <%= f.text_field :field2, class: "form-control" %>
+                </div>
+            </div>
+
+            <div class="form-group col-md-3">
+                <%= f.label :field3, "C.V..:  O.D.", class: "col-md-4 control-label"  %>
+                <div class="col-md-8">
+                    <%= f.text_field :field3, class: "form-control" %>
+                </div>
+            </div>
+            <div class="form-group col-md-3">
+                <%= f.label :field4, "O.I.", class: "col-md-4 control-label"  %>
+                <div class="col-md-8">
+                    <%= f.text_field :field4, class: "form-control" %>
+                </div>
+            </div>
+      </div>
+      <div class="row">
+            <div class="form-group col-md-4">
+              <div class="col-md-4">
+                <%= f.label :field5, "Reflejos Pupilares:", class: "control-label"  %>
+              </div>
+                <div class="col-md-8">
+                    <%= f.text_field :field5, class: "form-control" %>
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+              <div class="col-md-4">
+                <%= f.label :field6, "Anexos:  O.D.", class: "control-label"  %>
+              </div>
+                <div class="col-md-8">
+                    <%= f.text_field :field6, class: "form-control" %>
+                </div>
+            </div>
+            <div class="form-group col-md-4">
+                <%= f.label :field7, "O.I.", class: "col-md-4 control-label"  %>
+                <div class="col-md-8">
+                    <%= f.text_field :field7, class: "form-control" %>
+                </div>
+            </div>
+      </div>
+      <div class="row">
+            <div class="form-group col-md-3">
+                <%= f.label :field8, "Biom. O.D.", class: "col-md-4 control-label"  %>
+                <div class="col-md-8">
+                    <%= f.text_field :field8, class: "form-control" %>
+                </div>
+            </div>
+            <div class="form-group col-md-3">
+                <%= f.label :field9, "O.I.", class: "col-md-4 control-label"  %>
+                <div class="col-md-8">
+                    <%= f.text_field :field9, class: "form-control" %>
+                </div>
+            </div>
+            <div class="form-group col-md-3">
+                <%= f.label :field10, "Gonios. O.D. G", class: "col-md-4 control-label"  %>
+                <div class="col-md-8">
+                    <%= f.select :field10, options_for_select(I: 'I', II: 'II', III: 'III', IV: 'IV'), {},{:class=>"form-control"} %>
+                </div>
+            </div>
+            <div class="form-group col-md-3">
+                <%= f.label :field11, "O.I. G", class: "col-md-4 control-label"  %>
+                <div class="col-md-8">
+                    <%= f.select :field11, options_for_select(I: 'I', II: 'II', III: 'III', IV: 'IV'), {},{:class=>"form-control"} %>
+                </div>
+            </div>
+      </div>
+      <div class="row">
+            <div class="form-group col-md-2">
+                <%= f.label :bool1, "T.O. Por Apinación", class: "col-md-8 control-label"  %>
+                <div class="col-md-4">
+                    <%= f.check_box :bool1, class: "form-control" %>
+                </div>
+            </div>
+            <div class="form-group col-md-2">
+                <%= f.label :bool2, "Por Aire", class: "col-md-8 control-label"  %>
+                <div class="col-md-4">
+                    <%= f.check_box :bool2, class: "form-control" %>
+                </div>
+            </div>
+            <div class="form-group col-md-2">
+                <%= f.label :bool3, "Por Indentación", class: "col-md-8 control-label"  %>
+                <div class="col-md-4">
+                    <%= f.check_box :bool3, class: "form-control" %>
+                </div>
+            </div>
+            <div class="form-group col-md-2">
+                <%= f.label :field12, "O.D. mmHg", class: "col-md-4 control-label"  %>
+                <div class="col-md-8">
+                    <%= f.text_field :field12, class: "form-control"  %>
+                </div>
+            </div>
+            <div class="form-group col-md-2">
+                <%= f.label :field13, "O.I. mmHg", class: "col-md-4 control-label"  %>
+                <div class="col-md-8">
+                    <%= f.text_field :field13, class: "form-control" %>
+                </div>
+            </div>
+            <div class="form-group col-md-2">
+                <%= f.label :bool4, "Corregida", class: "col-md-8 control-label"  %>
+                <div class="col-md-4">
+                    <%= f.check_box :bool4, class: "form-control" %>
+                </div>
+            </div>
+      </div>
+      <div class="row">
+            <div class="form-group col-md-3">
+                <%= f.label :field14, "Paquim. O.D.", class: "col-md-4 control-label"  %>
+                <div class="col-md-8">
+                    <%= f.text_field :field14, class: "form-control" %>
+                </div>
+            </div>
+            <div class="form-group col-md-3">
+                <%= f.label :field14, "O.I.", class: "col-md-4 control-label"  %>
+                <div class="col-md-8">
+                    <%= f.text_field :field15, class: "form-control" %>
+                </div>
+            </div>
+            <div class="form-group col-md-3">
+                <%= f.label :field16, "Vías L. O.D.", class: "col-md-4 control-label"  %>
+                <div class="col-md-8">
+                    <%= f.select :field16, options_for_select(Permeable: 'Permeable', Obstruida: 'Obstruida'), {},{:class=>"form-control"} %>
+                </div>
+            </div>
+            <div class="form-group col-md-3">
+                <%= f.label :field17, "O.I.", class: "col-md-4 control-label"  %>
+                <div class="col-md-8">
+                    <%= f.select :field17, options_for_select(Permeable: 'Permeable', Obstruida: 'Obstruida'), {},{:class=>"form-control"} %>
+                </div>
+            </div>
+      </div>
+      <div class="row">
+            <div class="form-group col-md-3">
+                <%= f.label :field18, "F.O. Directo O.D.", class: "col-md-4 control-label"  %>
+                <div class="col-md-8">
+                    <%= f.text_field :field18, class: "form-control" %>
+                </div>
+            </div>
+            <div class="form-group col-md-3">
+                <%= f.label :field19, "Directo O.I.", class: "col-md-4 control-label"  %>
+                <div class="col-md-8">
+                    <%= f.text_field :field19, class: "form-control" %>
+                </div>
+            </div>
+            <div class="form-group col-md-3">
+                <%= f.label :field20, "Indirecto O.D.", class: "col-md-4 control-label"  %>
+                <div class="col-md-8">
+                    <%= f.text_field :field20, class: "form-control" %>
+                </div>
+            </div>
+            <div class="form-group col-md-3">
+                <%= f.label :field21, "Indirecto O.I.", class: "col-md-4 control-label"  %>
+                <div class="col-md-8">
+                    <%= f.text_field :field21, class: "form-control" %>
+                </div>
+            </div>
+      </div>
+      <div class="row">
+            <div class="form-group col-md-3">
+                <%= f.label :field22, "Refr Sin Cic O.D.", class: "col-md-4 control-label"  %>
+                <div class="col-md-8">
+                    <%= f.text_field :field22, class: "form-control" %>
+                </div>
+            </div>
+            <div class="form-group col-md-3">
+                <%= f.label :field23, "Sin Cic. O.I.", class: "col-md-4 control-label"  %>
+                <div class="col-md-8">
+                    <%= f.text_field :field23, class: "form-control" %>
+                </div>
+            </div>
+            <div class="form-group col-md-3">
+                <%= f.label :field24, "Con Cic O.D.", class: "col-md-4 control-label"  %>
+                <div class="col-md-8">
+                    <%= f.text_field :field24, class: "form-control" %>
+                </div>
+            </div>
+            <div class="form-group col-md-3">
+                <%= f.label :field25, "Sin Cic O.I.", class: "col-md-4 control-label"  %>
+                <div class="col-md-8">
+                    <%= f.text_field :field25, class: "form-control" %>
+                </div>
+            </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-12">
+            <%= f.label :text_field2, "A:", class: "col-md-1 control-label"  %>
+            <div class="col-md-11">
+                <%= f.text_area :text_field2, class: "form-control" %>
+            </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="form-group col-md-12">
+            <%= f.label :text_field3, "P:", class: "col-md-1 control-label"  %>
+            <div class="col-md-11">
+                <%= f.text_area :text_field3, class: "form-control" %>
+            </div>
+        </div>
+      </div>
+
+    <div class="container col-xs-12">
+        <%= f.submit "Guardar", class: "btn btn-default btn-primary pull-right"  %>
+    </div>
+    <% end %>
+
+</div>

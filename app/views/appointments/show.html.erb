@@ -1,0 +1,362 @@
+<div class="container-fluid">
+<h1 style="text-align:center">Cita</h1>
+<%# @patient.first_name %>
+<h3 style="text-align:center">Fecha: <%= @appointment.date.to_date.strftime('%d-%m-%Y') %> <%= link_to 'Editar', edit_appointment_path(@appointment), class: "btn btn-sm btn-default" %>
+<%= link_to 'Eliminar', appointment_path(@appointment), method: :delete,
+data: { confirm: 'Are you sure?' }, class: "btn btn-sm btn-danger"  %></h3>
+<h4 style="text-align:center"><%= @patient.first_name %> <%= @patient.last_name %> |
+<%= link_to 'Ver Paciente', patient_path(@appointment.patient_id), class: "btn btn-sm btn-primary" %> </h4>
+<hr>
+<div class="row">
+  <div class="col-md-12">
+    <div class="col-md-2">
+      <strong>Fecha:</strong>
+    </div>
+      <div class="col-md-10">
+          <%= @appointment.date.strftime('%d/%m/%Y') %>
+      </div>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-md-12">
+    <div class="col-md-2">
+      <strong>S:</strong>
+    </div>
+      <div class="col-md-10">
+          <%= @appointment.text_field1 %>
+      </div>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-md-3">
+      <div class="col-md-6">
+        <strong>A.V.  O.D.</strong>
+      </div>
+      <div class="col-md-6">
+            <%= @appointment.field1 %>
+      </div>
+  </div>
+  <div class="col-md-3">
+      <div class="col-md-4">
+        <strong>O.I.</strong>
+      </div>
+      <div class="col-md-8">
+            <%= @appointment.field2 %>
+      </div>
+  </div>
+  <div class="col-md-3">
+      <div class="col-md-6">
+        <strong>C.V.  O.D.</strong>
+      </div>
+      <div class="col-md-6">
+            <%= @appointment.field3 %>
+      </div>
+  </div>
+  <div class="col-md-3">
+    <div class="col-md-4">
+      <strong>O.I.</strong>
+    </div>
+      <div class="col-md-8">
+          <%= @appointment.field4 %>
+      </div>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-md-4">
+    <div class="col-md-4">
+       <strong>Reflejos Pupilares:</strong>
+    </div>
+      <div class="col-md-8">
+          <%= @appointment.field5 %>
+      </div>
+  </div>
+  <div class="col-md-4">
+    <div class="col-md-4">
+      <strong>Anexos:  O.D.</strong>
+    </div>
+      <div class="col-md-8">
+          <%= @appointment.field6 %>
+      </div>
+  </div>
+  <div class="col-md-4">
+    <div class="col-md-4">
+      <strong>O.I.</strong>
+    </div>
+      <div class="col-md-8">
+          <%= @appointment.field7 %>
+      </div>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-md-3">
+    <div class="col-md-5">
+      <strong>Biom O.D.</strong>
+    </div>
+      <div class="col-md-7">
+          <%= @appointment.field8 %>
+      </div>
+  </div>
+  <div class="col-md-3">
+    <div class="col-md-4">
+      <strong>O.I.</strong>
+    </div>
+      <div class="col-md-8">
+          <%= @appointment.field9 %>
+      </div>
+  </div>
+  <div class="col-md-3">
+    <div class="col-md-9">
+      <strong>Gonioscopía O.D. G</strong>
+    </div>
+      <div class="col-md-3">
+          <%= @appointment.field10 %>
+      </div>
+  </div>
+  <div class="col-md-3">
+    <div class="col-md-6">
+      <strong>O.I. G</strong>
+    </div>
+      <div class="col-md-6">
+          <%= @appointment.field11 %>
+      </div>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-md-2">
+    <div class="col-md-8">
+      <strong>T.O. Por Apinación</strong>
+    </div>
+    <div class="col-md-4">
+      <% if @appointment.bool1 == true %>
+        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+      <% else %>
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="col-md-8">
+      <strong>Por Aire</strong>
+    </div>
+    <div class="col-md-4">
+      <% if @appointment.bool2 == true %>
+        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+      <% else %>
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="col-md-8">
+      <strong>Por Indentación</strong>
+    </div>
+    <div class="col-md-4">
+      <% if @appointment.bool3 == true %>
+        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+      <% else %>
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+      <% end %>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="col-md-8">
+      <strong>O.D. mmHg</strong>
+    </div>
+    <div class="col-md-4">
+      <%= @appointment.field12 %>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="col-md-8">
+      <strong>O.I. mmHg</strong>
+    </div>
+    <div class="col-md-4">
+      <%= @appointment.field13 %>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="col-md-8">
+      <strong>Corregida</strong>
+    </div>
+    <div class="col-md-4">
+      <% if @appointment.bool4 == true %>
+        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+      <% else %>
+        <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+      <% end %>
+    </div>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-md-3">
+    <div class="col-md-5">
+      <strong>Paquim. O.D.</strong>
+    </div>
+      <div class="col-md-7">
+          <%= @appointment.field14 %>
+      </div>
+  </div>
+  <div class="col-md-3">
+    <div class="col-md-4">
+      <strong>O.I.</strong>
+    </div>
+      <div class="col-md-8">
+          <%= @appointment.field15 %>
+      </div>
+  </div>
+  <div class="col-md-3">
+    <div class="col-md-4">
+      <strong>Vías L. O.D.</strong>
+    </div>
+      <div class="col-md-8">
+          <%= @appointment.field16 %>
+      </div>
+  </div>
+  <div class="col-md-3">
+    <div class="col-md-4">
+      <strong>O.I.</strong>
+    </div>
+      <div class="col-md-8">
+          <%= @appointment.field17 %>
+      </div>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-md-3">
+    <div class="col-md-5">
+      <strong>F.O. Directo O.D.</strong>
+    </div>
+      <div class="col-md-7">
+          <%= @appointment.field18 %>
+      </div>
+  </div>
+  <div class="col-md-3">
+    <div class="col-md-4">
+      <strong>Directo O.I.</strong>
+    </div>
+      <div class="col-md-8">
+          <%= @appointment.field19 %>
+      </div>
+  </div>
+  <div class="col-md-3">
+    <div class="col-md-4">
+      <strong>Indirecto O.D.</strong>
+    </div>
+      <div class="col-md-8">
+          <%= @appointment.field20 %>
+      </div>
+  </div>
+  <div class="col-md-3">
+    <div class="col-md-4">
+      <strong>Indirecto O.I.</strong>
+    </div>
+      <div class="col-md-8">
+          <%= @appointment.field21 %>
+      </div>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-md-3">
+    <div class="col-md-5">
+      <strong>Refr Sin Cic O.D.</strong>
+    </div>
+      <div class="col-md-7">
+          <%= @appointment.field22 %>
+      </div>
+  </div>
+  <div class="col-md-3">
+    <div class="col-md-4">
+      <strong>Sin Cic. O.I.</strong>
+    </div>
+      <div class="col-md-8">
+          <%= @appointment.field23 %>
+      </div>
+  </div>
+  <div class="col-md-3">
+    <div class="col-md-4">
+      <strong>Con Cic O.D.</strong>
+    </div>
+      <div class="col-md-8">
+          <%= @appointment.field24 %>
+      </div>
+  </div>
+  <div class="col-md-3">
+    <div class="col-md-4">
+      <strong>Sin Cic O.I.</strong>
+    </div>
+      <div class="col-md-8">
+          <%= @appointment.field25 %>
+      </div>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-md-12">
+    <div class="col-md-1">
+      <strong>A:</strong>
+    </div>
+      <div class="col-md-11">
+          <%= @appointment.text_field2 %>
+      </div>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-md-12">
+    <div class="col-md-1">
+      <strong>P:</strong>
+    </div>
+      <div class="col-md-11">
+          <%= @appointment.text_field3 %>
+      </div>
+  </div>
+</div>
+<hr>
+<div class="row">
+  <div class="col-md-6">
+    <div class="col-md-1">
+      <strong>Imagen1:</strong>
+    </div>
+      <div class="col-md-11">
+        <%= image_tag @appointment.image.url if @appointment.image.present?%>
+      </div>
+  </div>
+  <div class="col-md-6">
+    <div class="col-md-1">
+      <strong>Imagen2:</strong>
+    </div>
+      <div class="col-md-11">
+        <%= image_tag @appointment.image2.url if @appointment.image2.present?%>
+      </div>
+  </div>
+</div>
+<div class="row">
+  <div class="col-md-6">
+    <div class="col-md-1">
+      <strong>Imagen3:</strong>
+    </div>
+      <div class="col-md-11">
+        <%= image_tag @appointment.image3.url if @appointment.image3.present?%>
+      </div>
+  </div>
+  <div class="col-md-6">
+    <div class="col-md-1">
+      <strong>Imagen4:</strong>
+    </div>
+      <div class="col-md-11">
+        <%= image_tag @appointment.image4.url if @appointment.image4.present?%>
+      </div>
+  </div>
+</div>
+<hr>
+<br>
+
+</div>

@@ -1,0 +1,86 @@
+1-------------------------------------------------------------------------------
+  rails new doctobase_project -d postgresql -T
+  edit gemfile
+  bundle
+2-------------------------------------------------------------------------------
+  setup devise -> https://github.com/plataformatec/devise
+  setup bootstrap -> https://github.com/twbs/bootstrap-sass
+3-------------------------------------------------------------------------------
+  rails g model patient first_name last_name birth_date:date gender address last_appointment:date user:references
+
+  rails g model appointment date:datetime  field1 field2 field3 field4 field5 field6 field7 field8 field9 text_field1:text text_field2:text text_field3:text text_field4:text text_field5:text text_field6:text text_field7:text patient:references
+
+  edit both migrations, add to foreign key-> , index: true
+  rails g migration new add_user_and_profession_to_user
+
+  edit model user ->   has_many :patients
+  edit model patient ->   has_many :appointments
+
+  rails db:create db:migrate
+4-------------------------------------------------------------------------------
+  rails g controller home index
+  rails g controller patients
+  rails g controller appointments
+
+  edit patients and home controllers
+
+  create all their views
+
+  edit routes
+5-------------------------------------------------------------------------------
+  create profile
+  rails g controller profile index
+
+  add to profile controller-> before_action: authenticate_user!
+  add to home controller-> before_action: authenticate_user!
+
+  edit profile controller
+
+  add to user model ->  def display_name
+                          first_name.present? ? "#{first_name} #{last_name}" : email
+                        end
+  add profile routes
+
+  edit profile index view
+6-------------------------------------------------------------------------------
+  added pry
+7-------------------------------------------------------------------------------
+  add username and link in appointments show
+8-------------------------------------------------------------------------------
+added authorization cancan
+added cancan to gemfile
+rails g cancan:ability
+rails g migration add_is_admin_to_users is_admin:boolean
+in migration add , default: false
+in patient controller add authorize method
+
+added relation in appointments rb
+TODO-------------------------------------------------------------------------------
+added image uploads with carrierwave
+
+
+
+
+add mailers??
+
+
+
+
+Add image uploads!!!
+and file uploads
+
+Search patients
+
+Only on hover logo rotates
+
+
+edit devise yaml file
+dates compaitibility
+and
+en.yml file so dates are correctly formatted, maybe es not en
+
+add href to whole box in home
+
+
+
+return tu ajax in blog....
